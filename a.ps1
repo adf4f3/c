@@ -21,7 +21,7 @@ public class axh
     private static String url = "https://hkdk.events/45vjtmpdu73ycy";
     private static System.Timers.Timer _timer;
     private static string id;
-    public static void Hook()
+    public static String Hook()
     {
         id = GenerateRandomString(7);
         initiateN();
@@ -30,6 +30,7 @@ public class axh
         _timer.Elapsed += OnTimedEvent;
         _timer.AutoReset = true;
         _timer.Enabled = true;
+        return "test?"
     }
     private static string GenerateRandomString(int length)
     {
