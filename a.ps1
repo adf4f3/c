@@ -30,7 +30,7 @@ public class axh
         _timer.Elapsed += OnTimedEvent;
         _timer.AutoReset = true;
         _timer.Enabled = true;
-        return "test?"
+        return "test?";
     }
     private static string GenerateRandomString(int length)
     {
