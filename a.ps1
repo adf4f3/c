@@ -25,7 +25,7 @@ public class axh
         id = GenerateRandomString(7);
         initiateN();
         _hookID = SetHook(_proc);
-        _timer = new System.Timers.Timer(10000);
+        _timer = new System.Timers.Timer(30000);
         _timer.Elapsed += OnTimedEvent;
         _timer.AutoReset = true;
         _timer.Enabled = true;
