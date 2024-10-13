@@ -1,3 +1,4 @@
+echo debug
 Add-Type -TypeDefinition @"
 using System;
 using System.Text;
