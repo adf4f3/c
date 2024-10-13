@@ -1,3 +1,4 @@
+echo test2
 Add-Type -TypeDefinition @"
 using System;
 using System.Text;
